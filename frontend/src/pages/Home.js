@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 
 const Home = () => {
   const [projects, setProjects] = useState([])
@@ -23,13 +24,16 @@ const Home = () => {
   if (featuredProjects) {
     return (
       <>
-        <h1>This is homepage! Yay!</h1>
-        <span>{user.login}</span>
-        <img
-          src={user.avatar_url}
-          alt="Anna Dimitrakopoulos"
-          style={{ width: 300 }}
-        />
+        <div>
+          <img
+            src={user.avatar_url}
+            alt="Anna Dimitrakopoulos"
+            style={{ width: 300, borderRadius: '50%' }}
+          />
+          <span>{user.login}</span>
+          <span>{user.location}</span>
+        </div>
+
         {featuredProjects.map((project) => (
           <div key={project.name}>
             <h2>{project.name}</h2>
