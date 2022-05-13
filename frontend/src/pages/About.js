@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = () => {
+const About = ({ user }) => {
   return (
     <>
       <h1>This is me!</h1>

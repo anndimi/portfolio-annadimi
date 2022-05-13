@@ -24,7 +24,7 @@ const NavbarContainer = styled.div`
   height: 8vh;
   margin: 0 auto;
   a {
-    color: black;
+    color: #393939;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
@@ -41,7 +41,7 @@ const NavbarContainer = styled.div`
     height: 2px;
     left: 50%;
     position: absolute;
-    background: black;
+    background: #393939;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }

@@ -122,7 +122,7 @@ async function fetchSingleDatabaseProject(name) {
 
   const query = { name: name }
 
-  const findSingleDatabaseProject = client
+  const findSingleDatabaseProject = await client
     .db('portfoliodb')
     .collection('github_projects')
     .findOne(query)
@@ -156,7 +156,10 @@ app.get('/projects', async (req, res) => {
 // })
 
 app.get('/projects/:name', async (req, res) => {
+  console.log('fuck me sideways')
+
   const projectInfo = await fetchSingleDatabaseProject(req.params.name)
+
   const githubInfo = await fetchSingleGithubRepo(req.params.name)
 
   //Create a new object that combines needed info from both the database and the github api.
@@ -166,6 +169,8 @@ app.get('/projects/:name', async (req, res) => {
     long_description: projectInfo.project_info,
     topics: githubInfo.topics,
   }
+
+  console.log(project, 'helooooo')
 
   res.send(JSON.stringify(project))
 })

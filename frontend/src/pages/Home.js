@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import githubIcon from '../assets/github-icon.png'
 import styled from 'styled-components'
 
-const Home = () => {
-  const [projects, setProjects] = useState([])
-  const [user, setUser] = useState({})
-
-  useEffect(() => {
-    fetch('http://localhost:8080/projects')
-      .then((res) => res.json())
-      .then((data) => setProjects(data))
-  }, [])
-
-  useEffect(() => {
-    fetch('http://localhost:8080/user')
-      .then((res) => res.json())
-      .then((data) => setUser(data))
-  }, [])
-
+const Home = ({ user, projects }) => {
   const featuredProjects = projects.filter(
     (project) => project.topics.includes('featured-project') === true
   )
@@ -24,28 +11,86 @@ const Home = () => {
   if (featuredProjects) {
     return (
       <>
-        <div>
+        <ProfileContainer>
           <img
             src={user.avatar_url}
             alt="Anna Dimitrakopoulos"
-            style={{ width: 300, borderRadius: '50%' }}
+            style={{ width: 250, borderRadius: '50%' }}
           />
           <span>{user.login}</span>
           <span>{user.location}</span>
-        </div>
+        </ProfileContainer>
 
-        {featuredProjects.map((project) => (
-          <div key={project.name}>
-            <h2>{project.name}</h2>
-            <a href={project.htmlUrl}>Github</a>
-            {project.topics.map((topic) => (
+        <FeaturedProjectsWrapper>
+          {featuredProjects.map((project) => (
+            <FeaturedProjectsContainer key={project.name}>
+              <Link to={`/projects/${project.name}`}>{project.name}</Link>
+              <a href={project.htmlUrl}>
+                <img src={githubIcon} alt="Github" style={{ width: 70 }} />
+              </a>
+              {/* {project.topics.map((topic) => (
               <p>{topic}</p>
-            ))}
-          </div>
-        ))}
+            ))} */}
+            </FeaturedProjectsContainer>
+          ))}
+        </FeaturedProjectsWrapper>
       </>
     )
   }
 }
 
 export default Home
+
+const ProfileContainer = styled.div`
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  gap: 5vw;
+`
+
+const FeaturedProjectsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 5vw;
+`
+
+const FeaturedProjectsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  a {
+    color: #393939;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+  }
+  a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #393939;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  a:hover:after {
+    width: 100%;
+    left: 0;
+  }
+  img {
+    text-decoration: none;
+  }
+`
