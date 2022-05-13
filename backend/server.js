@@ -82,13 +82,21 @@ async function fetchGithubReposLanguages(languages_url, name) {
   return languageObject
 }
 
-// app.get('/projects/languages', async (req, res) => {
-//   const getLanguages = await fetchGithubReposLanguages(
-//     'https://api.github.com/repos/anndimi/project-github-tracker/languages'
-//   )
+async function fetchSingleGithubRepo(name) {
+  const singleRepo = await fetch(
+    `https://api.github.com/repos/anndimi/${name}`,
+    {
+      headers: {
+        Authorization: 'token ' + process.env.GITHUB_TOKEN,
+        'User-Agent': 'anndimi',
+      },
+    }
+  ).then((res) => res.json())
 
-//   res.send(JSON.stringify(getLanguages))
-// })
+  singleRepo.name = name
+
+  return singleRepo
+}
 
 async function fetchDatabaseProjects() {
   const connectionUri = 'mongodb://127.0.0.1:27017/'
@@ -122,6 +130,17 @@ async function fetchSingleDatabaseProject(name) {
   return findSingleDatabaseProject
 }
 
+async function fetchGithubUser() {
+  const user = await fetch('https://api.github.com/users/anndimi', {
+    headers: {
+      Authorization: 'token ' + process.env.GITHUB_TOKEN,
+      'User-Agent': 'anndimi',
+    },
+  }).then((res) => res.json())
+
+  return user
+}
+
 // // Start defining your routes here
 
 app.get('/projects', async (req, res) => {
@@ -130,18 +149,31 @@ app.get('/projects', async (req, res) => {
   res.send(JSON.stringify(githubRepos))
 })
 
-app.get('/dbprojects', async (req, res) => {
-  const projectInfo = await fetchDatabaseProjects()
+// app.get('/dbprojects', async (req, res) => {
+//   const projectInfo = await fetchSingleGithubRepo()
 
-  res.send(JSON.stringify(projectInfo))
+//   res.send(JSON.stringify(projectInfo))
+// })
+
+app.get('/projects/:name', async (req, res) => {
+  const projectInfo = await fetchSingleDatabaseProject(req.params.name)
+  const githubInfo = await fetchSingleGithubRepo(req.params.name)
+
+  //Create a new object that combines needed info from both the database and the github api.
+  const project = {
+    name: req.params.name,
+    img: projectInfo.project_img,
+    long_description: projectInfo.project_info,
+    topics: githubInfo.topics,
+  }
+
+  res.send(JSON.stringify(project))
 })
 
-app.get('/dbprojects/:name', async (req, res) => {
-  const projectInfo = await fetchSingleDatabaseProject(req.params.name)
+app.get('/user', async (req, res) => {
+  const user = await fetchGithubUser()
 
-  console.log(JSON.stringify(projectInfo))
-
-  res.send(JSON.stringify(projectInfo))
+  res.send(JSON.stringify(user))
 })
 
 // // Start the server
