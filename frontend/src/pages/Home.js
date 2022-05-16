@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import githubIcon from '../assets/github-icon.png'
 import styled from 'styled-components'
+import LottieAvatar from '../elements/LottieAvatar'
 
 const Home = ({ user, projects }) => {
   const featuredProjects = projects.filter(
@@ -12,16 +13,22 @@ const Home = ({ user, projects }) => {
     return (
       <>
         <ProfileContainer>
-          <img
+          {/* <img
             src={user.avatar_url}
             alt="Anna Dimitrakopoulos"
             style={{ width: 250, borderRadius: '50%' }}
-          />
+          /> */}
+          <LottieAvatar />
           <span>{user.login}</span>
+          <span className="divider"></span>
+          <span>frontend developer</span>
+          <span className="divider"></span>
           <span>{user.location}</span>
         </ProfileContainer>
 
         <FeaturedProjectsWrapper>
+          <h2>featured projects</h2>
+          <span className="divider"></span>
           {featuredProjects.map((project) => (
             <FeaturedProjectsContainer key={project.name}>
               <Link to={`/projects/${project.name}`} className="project-link">
@@ -49,7 +56,18 @@ const ProfileContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
-  gap: 5vw;
+  gap: 2vw;
+
+  .divider {
+    border: solid 0.5px #393939;
+    height: 75px;
+  }
+
+  span {
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: lowercase;
+  }
 `
 
 const FeaturedProjectsWrapper = styled.div`
@@ -58,7 +76,12 @@ const FeaturedProjectsWrapper = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 0 auto;
-  gap: 5vw;
+  gap: 2vw;
+
+  .divider {
+    border: solid 0.5px #393939;
+    height: 75px;
+  }
 `
 
 const FeaturedProjectsContainer = styled.div`

@@ -19,9 +19,10 @@ export default NavBar
 
 const NavbarContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  gap: 15vw;
+  gap: 10vw;
   padding: 3vh 0 3vh 0;
   margin: 0 auto;
   a {

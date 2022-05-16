@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import githubIcon from '../assets/github-icon.png'
 import styled from 'styled-components'
+import LottieProjects from '../elements/LottieProjects'
 
 const ProjectsPage = ({ projects }) => {
   const projectsList = projects.filter(
@@ -10,6 +11,7 @@ const ProjectsPage = ({ projects }) => {
 
   return (
     <>
+      <LottieProjects />
       <ProjectsListWrapper>
         {projectsList.map((project) => (
           <ProjectsListContainer key={project.name}>
@@ -34,7 +36,7 @@ const ProjectsListWrapper = styled.div`
   justify-content: space-around;
   margin: 0 auto;
   gap: 1vw;
-  padding: 8em;
+  padding: 2em 8em 8em 8em;
 `
 
 const ProjectsListContainer = styled.div`
