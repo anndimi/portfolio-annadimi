@@ -24,9 +24,11 @@ const Home = ({ user, projects }) => {
         <FeaturedProjectsWrapper>
           {featuredProjects.map((project) => (
             <FeaturedProjectsContainer key={project.name}>
-              <Link to={`/projects/${project.name}`}>{project.name}</Link>
-              <a href={project.htmlUrl}>
-                <img src={githubIcon} alt="Github" style={{ width: 70 }} />
+              <Link to={`/projects/${project.name}`} className="project-link">
+                {project.name}
+              </Link>
+              <a href={project.htmlUrl} className="github-icon">
+                <img src={githubIcon} alt="GitHub" />
               </a>
               {/* {project.topics.map((topic) => (
               <p>{topic}</p>
@@ -62,9 +64,23 @@ const FeaturedProjectsWrapper = styled.div`
 const FeaturedProjectsContainer = styled.div`
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
-  a {
+
+  img {
+    width: 35px;
+    transition: transform 0.2s;
+    :hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .github-icon {
+    all: initial;
+    cursor: pointer;
+  }
+
+  .project-link {
     color: #393939;
     text-transform: uppercase;
     text-decoration: none;
@@ -74,7 +90,7 @@ const FeaturedProjectsContainer = styled.div`
     padding: 15px 20px;
     position: relative;
   }
-  a:after {
+  .project-link:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: '';
@@ -86,11 +102,8 @@ const FeaturedProjectsContainer = styled.div`
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-  a:hover:after {
+  .project-link:hover:after {
     width: 100%;
     left: 0;
-  }
-  img {
-    text-decoration: none;
   }
 `

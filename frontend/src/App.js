@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import ProjectsPage from './pages/ProjectsPage'
 import ProjectPage from './pages/ProjectPage'
 import About from './pages/About'
+import Contact from './pages/Contact'
 import Footer from './elements/Footer'
 import './App.css'
 
@@ -34,12 +35,14 @@ const App = () => {
             path="/projects"
             element={<ProjectsPage projects={projects} />}
           />
-
-          <Route path="/projects/:name" element={<ProjectPage />} />
-
+          <Route
+            path="/projects/:name"
+            element={<ProjectPage githubProjects={projects} />}
+          />
           <Route path="/about" element={<About user={user} />} />
+          <Route path="/contact" element={<Contact user={user} />} />
         </Routes>
-        <Footer />
+        <Footer user={user} />
       </BrowserRouter>
     </div>
   )

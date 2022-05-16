@@ -4,15 +4,20 @@ import githubIcon from '../assets/github-icon.png'
 import styled from 'styled-components'
 
 const ProjectsPage = ({ projects }) => {
+  const projectsList = projects.filter(
+    (project) => project.topics.includes('display-project') === true
+  )
+
   return (
     <>
-      <h1>This is all projects page!</h1>
       <ProjectsListWrapper>
-        {projects.map((project) => (
+        {projectsList.map((project) => (
           <ProjectsListContainer key={project.name}>
-            <Link to={`/projects/${project.name}`}>{project.name}</Link>
-            <a href={project.htmlUrl}>
-              <img src={githubIcon} alt="Github" style={{ width: 70 }} />
+            <Link to={`/projects/${project.name}`} className="project-link">
+              {project.name}
+            </Link>
+            <a href={project.htmlUrl} className="github-icon">
+              <img src={githubIcon} alt="Github" style={{ width: 35 }} />
             </a>
           </ProjectsListContainer>
         ))}
@@ -26,16 +31,27 @@ export default ProjectsPage
 const ProjectsListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
   margin: 0 auto;
   gap: 1vw;
+  padding: 8em;
 `
 
 const ProjectsListContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  a {
+  align-items: center;
+  .github-icon {
+    all: initial;
+    cursor: pointer;
+  }
+  img {
+    width: 35px;
+    transition: transform 0.2s;
+    :hover {
+      transform: scale(1.2);
+    }
+  }
+  .project-link {
     color: #393939;
     text-transform: uppercase;
     text-decoration: none;
@@ -45,7 +61,7 @@ const ProjectsListContainer = styled.div`
     padding: 15px 20px;
     position: relative;
   }
-  a:after {
+  .project-link:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: '';
@@ -57,7 +73,7 @@ const ProjectsListContainer = styled.div`
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-  a:hover:after {
+  .project-link:hover:after {
     width: 100%;
     left: 0;
   }
