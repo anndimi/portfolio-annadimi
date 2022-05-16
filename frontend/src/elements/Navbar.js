@@ -35,10 +35,10 @@ const NavbarContainer = styled.div`
     padding: 15px 20px;
     position: relative;
   }
-  a:after {    
+  a:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
-    content: "";
+    content: '';
     display: block;
     height: 2px;
     left: 50%;
@@ -47,9 +47,8 @@ const NavbarContainer = styled.div`
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-  a:hover:after { 
-    width: 100%; 
-    left: 0; 
-  }
+  a:hover:after {
+    width: 100%;
+    left: 0;
   }
 `

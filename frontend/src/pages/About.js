@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const About = ({ user }) => {
   return (
     <>
       <AboutContainer>
-        <h1>this is me</h1>
+        <h1>/about me</h1>
         <InfoContainer>
           <p>
             I'm a frontend developer with a master in speech and language
@@ -44,7 +45,10 @@ const About = ({ user }) => {
             strive to improve as a person and get better at what I do.
           </p>
 
-          <p>Feel free to contact me if you want to know more!</p>
+          <p>
+            Feel free to <Link to="/contact">contact</Link> me if you want to
+            know more!
+          </p>
         </InfoContainer>
       </AboutContainer>
     </>
@@ -66,4 +70,33 @@ const AboutContainer = styled.div`
 
 const InfoContainer = styled.div`
   width: 50%;
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    a {
+      color: #393939;
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      font-weight: bold;
+      display: inline-block;
+      padding: 5px 2px;
+      position: relative;
+    }
+    a:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: #393939;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+    a:hover:after {
+      width: 100%;
+      left: 0;
+    }
+  }
 `

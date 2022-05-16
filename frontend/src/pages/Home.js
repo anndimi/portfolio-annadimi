@@ -27,7 +27,7 @@ const Home = ({ user, projects }) => {
         </ProfileContainer>
 
         <FeaturedProjectsWrapper>
-          <h2>featured projects</h2>
+          <h2>/featured projects</h2>
           <span className="divider"></span>
           {featuredProjects.map((project) => (
             <FeaturedProjectsContainer key={project.name}>
@@ -64,7 +64,7 @@ const ProfileContainer = styled.div`
   }
 
   span {
-    font-weight: bold;
+    font-weight: 300;
     font-size: 20px;
     text-transform: lowercase;
   }

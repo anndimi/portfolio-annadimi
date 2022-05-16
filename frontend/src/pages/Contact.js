@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <>
       <ContactContainer>
-        <h1>contact me</h1>
+        <h1>/contact me</h1>
         <ContactForm>
           <label>
             name <input type="text" name="name" />
@@ -33,6 +33,9 @@ const ContactContainer = styled.div`
   align-items: center;
   width: 600px;
   margin: 0 auto;
+  h1 {
+    margin: 0;
+  }
 `
 
 const ContactForm = styled.form`
@@ -49,6 +52,9 @@ const ContactForm = styled.form`
       font-family: inherit;
       color: inherit;
       background-color: #ffe54c;
+      :focus {
+        outline: none;
+      }
     }
     textarea {
       resize: none;
@@ -57,6 +63,9 @@ const ContactForm = styled.form`
       font-family: inherit;
       color: inherit;
       background-color: #ffe54c;
+      :focus {
+        outline: none;
+      }
     }
   }
   .submit-btn {

@@ -11,38 +11,43 @@ const ProjectsPage = ({ projects }) => {
 
   return (
     <>
-      <LottieProjects />
-      <ProjectsListWrapper>
-        {projectsList.map((project) => (
-          <ProjectsListContainer key={project.name}>
-            <Link to={`/projects/${project.name}`} className="project-link">
-              {project.name}
-            </Link>
-            <a href={project.htmlUrl} className="github-icon">
-              <img src={githubIcon} alt="Github" style={{ width: 35 }} />
-            </a>
-          </ProjectsListContainer>
-        ))}
-      </ProjectsListWrapper>
+      <PageContainer>
+        <LottieProjects />
+
+        <ProjectsListWrapper>
+          {projectsList.map((project) => (
+            <ProjectsListContainer key={project.name}>
+              <Link to={`/projects/${project.name}`} className="project-link">
+                /{project.name}
+              </Link>
+              {/* <a href={project.htmlUrl} className="github-icon">
+                <img src={githubIcon} alt="Github" style={{ width: 35 }} />
+              </a> */}
+            </ProjectsListContainer>
+          ))}
+        </ProjectsListWrapper>
+      </PageContainer>
     </>
   )
 }
 
 export default ProjectsPage
 
+const PageContainer = styled.div`
+  display: flex;
+  margin: 0 auto;
+`
+
 const ProjectsListWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
   margin: 0 auto;
-  gap: 1vw;
-  padding: 2em 8em 8em 8em;
 `
 
 const ProjectsListContainer = styled.div`
   display: flex;
   align-items: center;
-  .github-icon {
+  /* .github-icon {
     all: initial;
     cursor: pointer;
   }
@@ -52,15 +57,16 @@ const ProjectsListContainer = styled.div`
     :hover {
       transform: scale(1.2);
     }
-  }
+  } */
   .project-link {
     color: #393939;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
     font-weight: bold;
+    font-size: 14px;
     display: inline-block;
-    padding: 15px 20px;
+    padding: 10px 5px;
     position: relative;
   }
   .project-link:after {
