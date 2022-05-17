@@ -7,6 +7,7 @@ import ProjectPage from './pages/ProjectPage'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Footer from './elements/Footer'
+import ErrorPage from './pages/ErrorPage'
 import './App.css'
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           />
           <Route path="/about" element={<About user={user} />} />
           <Route path="/contact" element={<Contact user={user} />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer user={user} />
       </BrowserRouter>
