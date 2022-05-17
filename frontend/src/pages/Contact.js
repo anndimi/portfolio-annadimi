@@ -1,20 +1,68 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
+import emailjs from '@emailjs/browser'
+import Swal from 'sweetalert2'
+import '../styles/sweetalert.css'
 
 const Contact = () => {
+  const form = useRef()
+  const { REACT_APP_USER_ID, REACT_APP_TEMPLATE_ID, REACT_APP_SERVICE_ID } =
+    process.env
+
+  const swalWithCustomStyling = Swal.mixin({
+    customClass: {
+      title: 'alert-title',
+      popup: 'alert-popup',
+    },
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        `${REACT_APP_SERVICE_ID}`,
+        `${REACT_APP_TEMPLATE_ID}`,
+        form.current,
+        `${REACT_APP_USER_ID}`
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+          swalWithCustomStyling.fire({
+            title: 'Message sent successfully!',
+            backdrop: '#39393966',
+            showConfirmButton: false,
+            timer: 2000,
+          })
+        },
+        (error) => {
+          console.log(error.text)
+          swalWithCustomStyling.fire({
+            title: 'Something went wrong. Please try again!',
+            backdrop: '#39393966',
+            showConfirmButton: false,
+            timer: 2000,
+          })
+        }
+      )
+
+    form.current.reset()
+  }
+
   return (
     <>
       <ContactContainer>
         <h1>/contact me</h1>
-        <ContactForm>
+        <ContactForm ref={form} onSubmit={handleSubmit}>
           <label>
-            name <input type="text" name="name" />
+            name <input type="text" name="user_name" required />
           </label>
           <label>
-            e-mail <input type="email" name="e-mail" />
+            e-mail <input type="email" name="user_email" required />
           </label>
           <label>
-            message <textarea name="message" />
+            message <textarea name="message" required />
           </label>
           <button className="submit-btn" type="submit">
             send

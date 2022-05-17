@@ -8,7 +8,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Footer from './elements/Footer'
 import ErrorPage from './pages/ErrorPage'
-import './App.css'
+import './styles/App.css'
 
 const App = () => {
   const [user, setUser] = useState({})

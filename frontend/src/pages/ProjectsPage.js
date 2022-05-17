@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import githubIcon from '../assets/icons/github-icon.png'
 import styled from 'styled-components'
 import LottieProjects from '../elements/LottieProjects'
 
@@ -20,9 +19,6 @@ const ProjectsPage = ({ projects }) => {
               <Link to={`/projects/${project.name}`} className="project-link">
                 /{project.name}
               </Link>
-              {/* <a href={project.htmlUrl} className="github-icon">
-                <img src={githubIcon} alt="Github" style={{ width: 35 }} />
-              </a> */}
             </ProjectsListContainer>
           ))}
         </ProjectsListWrapper>
