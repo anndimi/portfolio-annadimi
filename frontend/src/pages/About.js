@@ -8,6 +8,7 @@ import jsIcon from '../assets/icons/js-icon.png'
 import htmlIcon from '../assets/icons/html-icon.png'
 import mongoIcon from '../assets/icons/mongo-icon.png'
 import reduxIcon from '../assets/icons/redux-icon.png'
+import postmanIcon from '../assets/icons/postman-icon.png'
 
 const About = ({ user }) => {
   return (
@@ -85,6 +86,12 @@ const About = ({ user }) => {
               {' '}
               <img src={mongoIcon} alt="MongoDB" />
               MongoDB
+            </span>
+
+            <span>
+              {' '}
+              <img src={postmanIcon} alt="postman" />
+              Postman
             </span>
 
             <span>

@@ -6,10 +6,10 @@ const NavBar = () => {
   return (
     <>
       <NavbarContainer>
-        <Link to="/">Home</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/">/ Home /</Link>
+        <Link to="/projects">/ Projects /</Link>
+        <Link to="/about">/ About /</Link>
+        <Link to="/contact">/ Contact /</Link>
       </NavbarContainer>
     </>
   )
@@ -22,7 +22,7 @@ const NavbarContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  gap: 10vw;
+  gap: 5vw;
   padding: 3vh 0 3vh 0;
   margin: 0 auto;
   a {

@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import githubIcon from '../assets/icons/github-icon.png'
 import linkedinIcon from '../assets/icons/linkedin-icon.png'
+import phoneIcon from '../assets/icons/phone-icon.png'
+import mailIcon from '../assets/icons/mail-icon.png'
 
 const Footer = ({ user }) => {
   return (
@@ -14,8 +16,14 @@ const Footer = ({ user }) => {
         <FooterContainer>
           <ContactContainer>
             <h3>contact</h3>
-            <span>+46 765811319</span>
-            <span>{user.email}</span>
+            <span>
+              <img src={phoneIcon} alt="phonenumber" />
+              +46 765811319
+            </span>
+            <span>
+              <img src={mailIcon} alt="email" />
+              {user.email}
+            </span>
           </ContactContainer>
           <SocialMediaContainer>
             <h3>social media</h3>
@@ -61,8 +69,13 @@ const FooterContainer = styled.div`
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 5px;
   span {
     letter-spacing: 0.1em;
+  }
+  img {
+    width: 35px;
+    vertical-align: middle;
   }
 `
 
