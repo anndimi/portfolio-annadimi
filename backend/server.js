@@ -169,6 +169,8 @@ app.get('/projects/:name', async (req, res) => {
     long_description: projectInfo.project_info,
     topics: githubInfo.topics,
     homepage: githubInfo.homepage,
+    htmlUrl: githubInfo.html_url,
+    createdAt: githubInfo.created_at,
   }
 
   console.log(project, 'helooooo')

@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import githubIcon from '../assets/icons/github-icon.png'
+import linkedinIcon from '../assets/icons/linkedin-icon.png'
 
 const Footer = ({ user }) => {
   return (
@@ -17,12 +19,14 @@ const Footer = ({ user }) => {
           </ContactContainer>
           <SocialMediaContainer>
             <h3>social media</h3>
-            <a href={user.html_url} target="_blank">
-              GitHub
-            </a>
-            <a href={user.blog} target="_blank">
-              LinkedIn
-            </a>
+            <SocialMedia>
+              <a href={user.html_url} target="_blank" rel="noreferrer">
+                <img src={githubIcon} alt="github" />
+              </a>
+              <a href={user.blog} target="_blank" rel="noreferrer">
+                <img src={linkedinIcon} alt="linkedin" />
+              </a>
+            </SocialMedia>
           </SocialMediaContainer>
         </FooterContainer>
       </FooterWrapper>
@@ -65,28 +69,16 @@ const ContactContainer = styled.div`
 const SocialMediaContainer = styled.div`
   display: flex;
   flex-direction: column;
-  a {
-    color: #393939;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    display: inline-block;
-    padding: 0 5px;
-    position: relative;
-  }
-  a:after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    left: 50%;
-    position: absolute;
-    background: #393939;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-  }
-  a:hover:after {
-    width: 100%;
-    left: 0;
+`
+
+const SocialMedia = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  img {
+    width: 46px;
+    :hover {
+      transform: scale(1.1);
+    }
   }
 `

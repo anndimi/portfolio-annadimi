@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import githubIcon from '../assets/github-icon.png'
+import githubIcon from '../assets/icons/github-icon.png'
 import styled from 'styled-components'
 import LottieAvatar from '../elements/LottieAvatar'
 
@@ -34,7 +34,12 @@ const Home = ({ user, projects }) => {
               <Link to={`/projects/${project.name}`} className="project-link">
                 {project.name}
               </Link>
-              <a href={project.htmlUrl} className="github-icon">
+              <a
+                href={project.htmlUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="github-icon"
+              >
                 <img src={githubIcon} alt="GitHub" />
               </a>
               {/* {project.topics.map((topic) => (

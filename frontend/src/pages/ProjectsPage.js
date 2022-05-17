@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import githubIcon from '../assets/github-icon.png'
+import githubIcon from '../assets/icons/github-icon.png'
 import styled from 'styled-components'
 import LottieProjects from '../elements/LottieProjects'
 

@@ -1,71 +1,129 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import cssIcon from '../assets/icons/css-icon.png'
+import reactIcon from '../assets/icons/react-icon.png'
+import nodeIcon from '../assets/icons/node-icon.png'
+import jsIcon from '../assets/icons/js-icon.png'
+import htmlIcon from '../assets/icons/html-icon.png'
+import mongoIcon from '../assets/icons/mongo-icon.png'
+import reduxIcon from '../assets/icons/redux-icon.png'
 
 const About = ({ user }) => {
   return (
     <>
-      <AboutContainer>
-        <h1>/about me</h1>
-        <InfoContainer>
-          <p>
-            I'm a frontend developer with a master in speech and language
-            pathology. I love the combination of logic and creativity in
-            programming! My current technological stack is: JavaScript(ES6),
-            React Native, React-Redux, Node.js, CSS3, HTML5, Github, APIs, REST
-            APIs.
-          </p>
+      <PageContainer>
+        <AboutContainer>
+          <h1>/about me</h1>
+          <InfoContainer>
+            <p>
+              I'm a frontend developer with a master in speech and language
+              pathology. I love the combination of logic and creativity in
+              programming!
+            </p>
 
-          <p>
-            Born in Sweden and raised in Greece. I moved back to Sweden in 2008
-            to study and make something of myself. As a girl (growing up in
-            Greece) it never crossed my mind to study programming, because "it
-            was something that only boys do". And growing up in a segregated
-            culture, like the Greek one, you don't think twice about those
-            things because that’s the norm. Despite that I used to spend, and
-            continue spending, the majority of my waking time in front of my PC;
-            playing video games mostly. One could say that my PC is a natural
-            extension to myself.
-          </p>
+            <p>
+              Born in Sweden and raised in Greece. I moved back to Sweden in
+              2008 to study and make something of myself. As a girl (growing up
+              in Greece) it never crossed my mind to study programming, because
+              "it was something that only boys do". And growing up in a
+              segregated culture, like the Greek one, you don't think twice
+              about those things because that’s the norm. Despite that I used to
+              spend, and continue spending, the majority of my waking time in
+              front of my PC; playing video games mostly. One could say that my
+              PC is a natural extension to myself.
+            </p>
 
-          <p>
-            I was working as a speech and language pathologist for 3 years and
-            realised that it’s not what I want to do for the rest of my life. So
-            I handed in my notice and decided to change direction in my career
-            and try coding! I fell in love with it on the spot. I mean, it's
-            like playing video games so what is there not to love?! Furthermore
-            I really enjoy the problem solving aspect and the “aha” moments of
-            understanding how things work (or why they don’t!).
-          </p>
+            <p>
+              I was working as a speech and language pathologist for 3 years and
+              realised that it’s not what I want to do for the rest of my life.
+              So I handed in my notice and decided to change direction in my
+              career and try coding! I fell in love with it on the spot. I mean,
+              it's like playing video games so what is there not to love?!
+              Furthermore I really enjoy the problem solving aspect and the
+              “aha” moments of understanding how things work (or why they
+              don’t!).
+            </p>
 
-          <p>
-            Throughout my various working experiences I’ve learned to cope with
-            stress and fast paced working environments, where quick decision
-            making, problem solving and flexibility is essential. I always
-            strive to improve as a person and get better at what I do.
-          </p>
+            <p>
+              Throughout my various working experiences I’ve learned to cope
+              with stress and fast paced working environments, where quick
+              decision making, problem solving and flexibility is essential. I
+              always strive to improve as a person and get better at what I do.
+            </p>
 
-          <p>
-            Feel free to <Link to="/contact">contact</Link> me if you want to
-            know more!
-          </p>
-        </InfoContainer>
-      </AboutContainer>
+            <p>
+              Feel free to <Link to="/contact">contact</Link> me if you want to
+              know more!
+            </p>
+          </InfoContainer>
+        </AboutContainer>
+        <TechContainer>
+          <h1>/tech stack</h1>
+          <TechInfoContainer>
+            <span>
+              <img src={jsIcon} alt="JavaScript" />
+              JavaScript
+            </span>
+            <span>
+              {' '}
+              <img src={reactIcon} alt="React" />
+              React
+            </span>
+            <span>
+              {' '}
+              <img src={reduxIcon} alt="Redux" />
+              Redux
+            </span>
+            <span>
+              {' '}
+              <img src={nodeIcon} alt="Node" />
+              Node
+            </span>
+
+            <span>
+              {' '}
+              <img src={mongoIcon} alt="MongoDB" />
+              MongoDB
+            </span>
+
+            <span>
+              {' '}
+              <img src={htmlIcon} alt="HTML5" />
+              HTML5
+            </span>
+            <span>
+              {' '}
+              <img src={cssIcon} alt="CSS3" />
+              CSS3
+            </span>
+          </TechInfoContainer>
+        </TechContainer>
+      </PageContainer>
     </>
   )
 }
 
 export default About
 
-const AboutContainer = styled.div`
+const PageContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 5em;
   margin: 0 auto;
   h1 {
     font-size: 40px;
     color: #be5845;
+    margin: 0;
+    white-space: nowrap;
   }
+`
+
+const AboutContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  margin: 0 auto;
 `
 
 const InfoContainer = styled.div`
@@ -98,5 +156,32 @@ const InfoContainer = styled.div`
       width: 100%;
       left: 0;
     }
+  }
+`
+
+const TechContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 66%;
+  gap: 5em;
+  margin: 0 auto;
+`
+
+const TechInfoContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 300;
+  gap: 2em;
+  span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    width: 46px;
   }
 `
