@@ -82,9 +82,3 @@ const ProjectsListContainer = styled.div`
     left: 0;
   }
 `
-
-// {project.codingLanguages.map((language) => (
-//     <div key={language.name}>
-//       <span>{language.JavaScript}</span>
-//     </div>
-//   ))}

@@ -120,12 +120,31 @@ async function fetchSingleDatabaseProject(name) {
   const client = new MongoClient(connectionUri)
   await client.connect()
 
-  const query = { name: name }
+  // const query = {
+  //   name: name,
+  //   $lookup: {
+  //     from: 'tech',
+  //     localField: 'project_tech',
+  //     foreignField: 'name',
+  //     as: 'project_tech_with_img',
+  //   },
+  // }
 
   const findSingleDatabaseProject = await client
     .db('portfoliodb')
     .collection('github_projects')
-    .findOne(query)
+    .aggregate([
+      { $match: { name: name } },
+      {
+        $lookup: {
+          from: 'tech',
+          localField: 'project_tech',
+          foreignField: 'name',
+          as: 'project_tech_with_img',
+        },
+      },
+    ])
+    .toArray()
 
   return findSingleDatabaseProject
 }
@@ -156,24 +175,24 @@ app.get('/projects', async (req, res) => {
 // })
 
 app.get('/projects/:name', async (req, res) => {
-  console.log('fuck me sideways')
-
   const projectInfo = await fetchSingleDatabaseProject(req.params.name)
+
+  console.log('fuck me sideways', projectInfo)
 
   const githubInfo = await fetchSingleGithubRepo(req.params.name)
 
   //Create a new object that combines needed info from both the database and the github api.
   const project = {
     name: req.params.name,
-    img: projectInfo.project_img,
-    long_description: projectInfo.project_info,
+    img: projectInfo[0].project_img,
+    long_description: projectInfo[0].project_info,
     topics: githubInfo.topics,
     homepage: githubInfo.homepage,
     htmlUrl: githubInfo.html_url,
     createdAt: githubInfo.created_at,
+    projectTech: projectInfo[0].project_tech,
+    projectTechImg: projectInfo[0].project_tech_with_img,
   }
-
-  console.log(project, 'helooooo')
 
   res.send(JSON.stringify(project))
 })

@@ -40,6 +40,12 @@ const ProjectPage = () => {
           </ProjectImgWrapper>
           <p>{project.long_description}</p>
         </SingleProjectContainer>
+        {project.projectTechImg.map((tech) => (
+          <div key={tech._id}>
+            <img src={tech.img} alt={tech.name} />
+            <span>{tech.name}</span>
+          </div>
+        ))}
         <a href={project.homepage} target="_blank" rel="noreferrer">
           View it live
         </a>

@@ -13,11 +13,6 @@ const Home = ({ user, projects }) => {
     return (
       <>
         <ProfileContainer>
-          {/* <img
-            src={user.avatar_url}
-            alt="Anna Dimitrakopoulos"
-            style={{ width: 250, borderRadius: '50%' }}
-          /> */}
           <LottieAvatar />
           <span>{user.login}</span>
           <span className="divider"></span>
@@ -42,9 +37,6 @@ const Home = ({ user, projects }) => {
               >
                 <img src={githubIcon} alt="GitHub" />
               </a>
-              {/* {project.topics.map((topic) => (
-              <p>{topic}</p>
-            ))} */}
             </FeaturedProjectsContainer>
           ))}
         </FeaturedProjectsWrapper>
