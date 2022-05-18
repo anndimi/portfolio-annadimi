@@ -20,26 +20,27 @@ const Home = ({ user, projects }) => {
           <span className="divider"></span>
           <span>{user.location}</span>
         </ProfileContainer>
-
-        <FeaturedProjectsWrapper>
+        <FeaturedProjectsSection>
           <h2>/featured projects</h2>
-          <span className="divider"></span>
-          {featuredProjects.map((project) => (
-            <FeaturedProjectsContainer key={project.name}>
-              <Link to={`/projects/${project.name}`} className="project-link">
-                {project.name}
-              </Link>
-              <a
-                href={project.htmlUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="github-icon"
-              >
-                <img src={githubIcon} alt="GitHub" />
-              </a>
-            </FeaturedProjectsContainer>
-          ))}
-        </FeaturedProjectsWrapper>
+
+          <FeaturedProjectsWrapper>
+            {featuredProjects.map((project) => (
+              <FeaturedProjectsContainer key={project.name}>
+                <Link to={`/projects/${project.name}`} className="project-link">
+                  {project.name}
+                </Link>
+                <a
+                  href={project.htmlUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="github-icon"
+                >
+                  <img src={githubIcon} alt="GitHub" />
+                </a>
+              </FeaturedProjectsContainer>
+            ))}
+          </FeaturedProjectsWrapper>
+        </FeaturedProjectsSection>
       </>
     )
   }
@@ -66,6 +67,19 @@ const ProfileContainer = styled.div`
     text-transform: lowercase;
   }
 `
+const FeaturedProjectsSection = styled.div`
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  max-width: 1666px;
+  width: 70%;
+  margin: auto;
+  h2 {
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #393939;
+    padding: 30px 0 30px 0;
+  }
+`
 
 const FeaturedProjectsWrapper = styled.div`
   display: flex;
@@ -73,12 +87,6 @@ const FeaturedProjectsWrapper = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 0 auto;
-  gap: 2vw;
-
-  .divider {
-    border: solid 0.5px #393939;
-    height: 75px;
-  }
 `
 
 const FeaturedProjectsContainer = styled.div`

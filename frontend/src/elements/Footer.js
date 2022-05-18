@@ -26,7 +26,7 @@ const Footer = ({ user }) => {
             </span>
           </ContactContainer>
           <SocialMediaContainer>
-            <h3>social media</h3>
+            <h3>find me</h3>
             <SocialMedia>
               <a href={user.html_url} target="_blank" rel="noreferrer">
                 <img src={githubIcon} alt="github" />
