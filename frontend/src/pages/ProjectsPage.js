@@ -32,12 +32,19 @@ export default ProjectsPage
 const PageContainer = styled.div`
   display: flex;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const ProjectsListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `
 
 const ProjectsListContainer = styled.div`

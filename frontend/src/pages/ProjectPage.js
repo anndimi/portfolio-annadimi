@@ -25,7 +25,7 @@ const ProjectPage = () => {
         <PageContainer>
           <SingleProjectContainer>
             <h1>/{project.name}</h1>
-            <p>created at: {dayjs(project.createdAt).format('MM-DD-YYYY')}</p>
+            <h4>created at: {dayjs(project.createdAt).format('MM-DD-YYYY')}</h4>
             <ProjectImgWrapper>
               <span />
               <img src={project.img} alt={project.name} />{' '}
@@ -87,6 +87,13 @@ const PageContainer = styled.div`
     width: 100%;
     left: 0;
   }
+
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 const SingleProjectContainer = styled.div`
@@ -104,7 +111,7 @@ const SingleProjectContainer = styled.div`
   }
   img {
     width: 650px;
-    height: 345px;
+    height: auto;
     opacity: 0.7;
   }
   span {
@@ -119,6 +126,18 @@ const SingleProjectContainer = styled.div`
   p {
     font-size: 18px;
     font-weight: 300;
+  }
+
+  @media (max-width: 991px) {
+    margin: initial;
+
+    h1 {
+      margin-top: 50px;
+    }
+
+    h4 {
+      margin: 0;
+    }
   }
 `
 const ProjectImgWrapper = styled.div`
@@ -137,6 +156,21 @@ const ProjectTechWrapper = styled.div`
     align-items: center;
     border-right: 2px solid #393939;
     padding: 20px 0 20px 0;
+  }
+
+  @media (max-width: 991px) {
+    grid-template-columns: none;
+    grid-template-rows: 140px 1fr;
+
+    h3 {
+      display: flex;
+      justify-content: center;
+      border-bottom: 2px solid #393939;
+      border-right: none;
+      padding: 0;
+      text-align: center;
+      margin-top: 0;
+    }
   }
 `
 

@@ -12,17 +12,30 @@ const Home = ({ user, projects }) => {
   if (featuredProjects) {
     return (
       <>
-        <ProfileContainer>
-          <LottieAvatar />
-          <span>{user.login}</span>
-          <span className="divider"></span>
-          <span>frontend developer</span>
-          <span className="divider"></span>
-          <span>{user.location}</span>
-        </ProfileContainer>
+        {window.innerWidth < 769 ? (
+          <>
+            <LottieAvatar style={{ height: 300 }} />
+            <ProfileContainer>
+              <div>{user.login}</div>
+              <span className="divider"></span>
+              <div>frontend developer</div>
+              <span className="divider"></span>
+              <div>{user.location}</div>
+            </ProfileContainer>
+          </>
+        ) : (
+          <ProfileContainer>
+            <LottieAvatar />
+            <div>{user.login}</div>
+            <span className="divider"></span>
+            <div>frontend developer</div>
+            <span className="divider"></span>
+            <div>{user.location}</div>
+          </ProfileContainer>
+        )}
+
         <FeaturedProjectsSection>
           <h2>/featured projects</h2>
-
           <FeaturedProjectsWrapper>
             {featuredProjects.map((project) => (
               <FeaturedProjectsContainer key={project.name}>
@@ -52,19 +65,24 @@ const ProfileContainer = styled.div`
   height: 30vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
-  gap: 2vw;
-
+  gap: 1em;
+  max-width: 880px;
+  width: 85%;
   .divider {
     border: solid 0.5px #393939;
     height: 75px;
   }
-
-  span {
+  div {
     font-weight: 300;
     font-size: 20px;
     text-transform: lowercase;
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
   }
 `
 const FeaturedProjectsSection = styled.div`
@@ -79,14 +97,33 @@ const FeaturedProjectsSection = styled.div`
     border-right: 2px solid #393939;
     padding: 30px 0 30px 0;
   }
+
+  @media (max-width: 991px) {
+    grid-template-columns: none;
+    grid-template-rows: 140px 1fr;
+
+    h2 {
+      display: flex;
+      justify-content: center;
+      border-bottom: 2px solid #393939;
+      border-right: none;
+      padding: 0;
+      text-align: center;
+      margin-top: 0;
+    }
+  }
 `
 
 const FeaturedProjectsWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 `
 
 const FeaturedProjectsContainer = styled.div`
@@ -133,5 +170,16 @@ const FeaturedProjectsContainer = styled.div`
   .project-link:hover:after {
     width: 100%;
     left: 0;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 20px;
+
+    .project-link {
+      width: 50%;
+      padding: 0;
+    }
   }
 `

@@ -52,18 +52,19 @@ const FooterWrapper = styled.div`
   }
 `
 
-// const Divider = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `
-
 const FooterContainer = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 2vh 0 5vh 0;
   margin: 0 auto;
   width: 70%;
+
+  @media (max-width: 767px) {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 `
 
 const ContactContainer = styled.div`

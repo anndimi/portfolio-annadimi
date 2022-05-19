@@ -10,7 +10,7 @@ import mongoIcon from '../assets/icons/mongo-icon.png'
 import reduxIcon from '../assets/icons/redux-icon.png'
 import postmanIcon from '../assets/icons/postman-icon.png'
 
-const About = ({ user }) => {
+const About = () => {
   return (
     <>
       <PageContainer>
@@ -116,8 +116,11 @@ export default About
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 5em;
-  margin: 0 auto;
+  margin: auto;
   h1 {
     font-size: 40px;
     color: #be5845;
@@ -127,14 +130,15 @@ const PageContainer = styled.div`
 `
 
 const AboutContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 5em;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  max-width: 1666px;
+  width: 90%;
+  margin: 40px 0 40px 0;
 `
 
 const InfoContainer = styled.div`
-  width: 50%;
+  width: 100%;
   p {
     font-size: 18px;
     font-weight: 300;
@@ -167,11 +171,10 @@ const InfoContainer = styled.div`
 `
 
 const TechContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 66%;
-  gap: 5em;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  max-width: 1666px;
+  width: 90%;
 `
 
 const TechInfoContainer = styled.div`

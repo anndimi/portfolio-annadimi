@@ -51,4 +51,9 @@ const NavbarContainer = styled.div`
     width: 100%;
     left: 0;
   }
+
+  @media (max-width: 768px) {
+    gap: 3vw;
+    padding: 3vh 0 0 0;
+  }
 `

@@ -5,3 +5,9 @@
   height: 100vh;
   gap: 10vh;
 }
+
+@media (max-width: 991px) {
+  .App {
+    gap: 3vh;
+  }
+}
