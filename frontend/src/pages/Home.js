@@ -89,7 +89,7 @@ const FeaturedProjectsSection = styled.div`
   display: grid;
   grid-template-columns: 300px 1fr;
   max-width: 1666px;
-  width: 70%;
+  width: 95%;
   margin: auto;
   h2 {
     display: flex;

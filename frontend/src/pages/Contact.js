@@ -79,10 +79,13 @@ const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  justify-content: center;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
-  h1 {
-    margin: 0;
+
+  @media (max-width: 768px) {
+    margin-top: 50px;
   }
 `
 

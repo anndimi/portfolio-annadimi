@@ -1,3 +1,8 @@
+html {
+  margin: 0;
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -5,8 +10,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #393939;
   cursor: default;
+  height: 100%;
+  background-image: url(../assets/images/background.webp);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  position: relative;
 }
 
 code {
   font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 767px) {
+  body { 
+    background-image: none;
+    background-position: initial;
+    background-repeat: initial;
+    background-size: initial;
+    position: initial;
+  }
+ 
 }

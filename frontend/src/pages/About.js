@@ -127,6 +127,17 @@ const PageContainer = styled.div`
     margin: 0;
     white-space: nowrap;
   }
+
+  @media (max-width: 991px) {
+    gap: 1em;
+    h1 {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      text-align: center;
+      margin-top: 0;
+    }
+  }
 `
 
 const AboutContainer = styled.div`
@@ -135,6 +146,12 @@ const AboutContainer = styled.div`
   max-width: 1666px;
   width: 90%;
   margin: 40px 0 40px 0;
+
+  @media (max-width: 991px) {
+    grid-template-columns: none;
+    grid-template-rows: 100px 1fr;
+    max-width: 800px;
+  }
 `
 
 const InfoContainer = styled.div`
@@ -175,6 +192,12 @@ const TechContainer = styled.div`
   grid-template-columns: 310px 1fr;
   max-width: 1666px;
   width: 90%;
+  margin: 0 auto;
+
+  @media (max-width: 991px) {
+    grid-template-columns: none;
+    grid-template-rows: 120px 1fr;
+  }
 `
 
 const TechInfoContainer = styled.div`

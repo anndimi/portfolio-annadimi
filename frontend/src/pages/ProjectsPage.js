@@ -35,6 +35,13 @@ const PageContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  @media (max-width: 991px) {
+    max-width: 700px;
+    width: 100%;
   }
 `
 
@@ -50,24 +57,13 @@ const ProjectsListWrapper = styled.div`
 const ProjectsListContainer = styled.div`
   display: flex;
   align-items: center;
-  /* .github-icon {
-    all: initial;
-    cursor: pointer;
-  }
-  img {
-    width: 35px;
-    transition: transform 0.2s;
-    :hover {
-      transform: scale(1.2);
-    }
-  } */
   .project-link {
     color: #393939;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     display: inline-block;
     padding: 10px 5px;
     position: relative;
@@ -87,5 +83,11 @@ const ProjectsListContainer = styled.div`
   .project-link:hover:after {
     width: 100%;
     left: 0;
+  }
+
+  @media (max-width: 768px) {
+    .project-link {
+      text-align: center;
+    }
   }
 `

@@ -3,7 +3,14 @@ import Lottie from 'lottie-react'
 import avatar from '../lotties/avatar.json'
 
 const LottieAvatar = () => {
-  return <Lottie loop autoplay animationData={avatar} style={{ height: 550 }} />
+  return (
+    <Lottie
+      loop
+      autoplay
+      animationData={avatar}
+      style={{ height: '100%', maxHeight: '500px' }}
+    />
+  )
 }
 
 export default LottieAvatar

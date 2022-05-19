@@ -26,10 +26,8 @@ const ProjectPage = () => {
           <SingleProjectContainer>
             <h1>/{project.name}</h1>
             <h4>created at: {dayjs(project.createdAt).format('MM-DD-YYYY')}</h4>
-            <ProjectImgWrapper>
-              <span />
-              <img src={project.img} alt={project.name} />{' '}
-            </ProjectImgWrapper>
+            <img src={project.img} alt={project.name} />
+            <ProjectImgWrapper></ProjectImgWrapper>
             <p>{project.long_description}</p>
           </SingleProjectContainer>
           <ProjectTechWrapper>
@@ -59,8 +57,8 @@ const ProjectPage = () => {
 export default ProjectPage
 
 const PageContainer = styled.div`
-  width: 60%;
-  margin: 0 auto;
+  width: 80%;
+  margin: auto;
   a {
     color: #393939;
     text-transform: uppercase;
@@ -93,6 +91,7 @@ const PageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
   }
 `
 
@@ -103,6 +102,8 @@ const SingleProjectContainer = styled.div`
   align-items: center;
   gap: 1em;
   margin: 0 auto;
+  width: 90%;
+  max-width: 800px;
   h1 {
     text-align: center;
     margin-bottom: 10px;
@@ -110,19 +111,13 @@ const SingleProjectContainer = styled.div`
     text-transform: lowercase;
   }
   img {
-    width: 650px;
+    width: 100%;
+    max-width: 650px;
     height: auto;
-    opacity: 0.7;
-  }
-  span {
     border: 2px solid #393939;
-    height: 340px;
-    width: 650px;
-    z-index: 9999;
-    position: absolute;
-    margin-top: -15px;
-    margin-left: -15px;
+    padding: 10px;
   }
+
   p {
     font-size: 18px;
     font-weight: 300;
