@@ -8,7 +8,7 @@ const LottieAvatar = () => {
       loop
       autoplay
       animationData={avatar}
-      style={{ height: '100%', maxHeight: '500px' }}
+      style={{ height: '170%', maxHeight: '500px' }}
     />
   )
 }

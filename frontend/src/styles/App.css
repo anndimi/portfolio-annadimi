@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  max-width: 80vw;
+  max-width: 75vw;
   margin: auto;
   gap: 10vh;
-  background-color: #ffffff;
+  background-color: #ffffff ;
   height: auto;
   min-height: 100vh;
 }

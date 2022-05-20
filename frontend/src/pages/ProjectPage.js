@@ -42,12 +42,15 @@ const ProjectPage = () => {
               ))}
             </TechImgWrapper>
           </ProjectTechWrapper>
-          <a href={project.homepage} target="_blank" rel="noreferrer">
-            View it live
-          </a>
-          <a href={project.htmlUrl} target="_blank" rel="noreferrer">
-            GitHub Repo
-          </a>
+          <ProjectLinksContainer>
+            <a href={project.homepage} target="_blank" rel="noreferrer">
+              / View it live /
+            </a>
+
+            <a href={project.htmlUrl} target="_blank" rel="noreferrer">
+              / GitHub Repo /
+            </a>
+          </ProjectLinksContainer>
         </PageContainer>
       )}
     </>
@@ -59,9 +62,13 @@ export default ProjectPage
 const PageContainer = styled.div`
   width: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   a {
     color: #393939;
-    text-transform: uppercase;
+    text-transform: lowercase;
     text-decoration: none;
     letter-spacing: 0.15em;
     font-weight: bold;
@@ -144,7 +151,7 @@ const ProjectTechWrapper = styled.div`
   display: grid;
   grid-template-columns: 200px 1fr;
   max-width: 1666px;
-  width: 100%;
+  width: 90%;
   margin: 40px 0 40px 0;
   h3 {
     display: flex;
@@ -156,6 +163,7 @@ const ProjectTechWrapper = styled.div`
   @media (max-width: 991px) {
     grid-template-columns: none;
     grid-template-rows: 140px 1fr;
+    width: 85%;
 
     h3 {
       display: flex;
@@ -193,5 +201,11 @@ const TechImgContainer = styled.div`
   img {
     height: auto;
     width: 56px;
+  }
+`
+
+const ProjectLinksContainer = styled.div`
+  @media (max-width: 991px) {
+    text-align: center;
   }
 `

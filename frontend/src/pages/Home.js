@@ -12,16 +12,18 @@ const Home = ({ user, projects }) => {
   if (featuredProjects) {
     return (
       <>
-        {window.innerWidth < 769 ? (
+        {window.innerWidth < 768 ? (
           <>
-            <LottieAvatar style={{ height: 300 }} />
-            <ProfileContainer>
-              <div>{user.login}</div>
-              <span className="divider"></span>
-              <div>frontend developer</div>
-              <span className="divider"></span>
-              <div>{user.location}</div>
-            </ProfileContainer>
+            <ProfileWrapper>
+              <LottieAvatar style={{ height: 300 }} />
+              <ProfileContainer>
+                <div>{user.login}</div>
+                <span className="divider"></span>
+                <div>frontend developer</div>
+                <span className="divider"></span>
+                <div>{user.location}</div>
+              </ProfileContainer>
+            </ProfileWrapper>
           </>
         ) : (
           <ProfileContainer>
@@ -60,6 +62,12 @@ const Home = ({ user, projects }) => {
 }
 
 export default Home
+
+const ProfileWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 300px 2fr;
+  gap: 25vh;
+`
 
 const ProfileContainer = styled.div`
   height: 30vh;
@@ -101,6 +109,7 @@ const FeaturedProjectsSection = styled.div`
   @media (max-width: 991px) {
     grid-template-columns: none;
     grid-template-rows: 140px 1fr;
+    width: 80%;
 
     h2 {
       display: flex;

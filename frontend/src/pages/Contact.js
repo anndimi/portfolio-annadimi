@@ -94,6 +94,7 @@ const ContactForm = styled.form`
   flex-direction: column;
   gap: 1em;
   width: 80%;
+  z-index: 1;
   label {
     display: flex;
     flex-direction: column;
