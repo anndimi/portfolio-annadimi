@@ -151,4 +151,10 @@ const ContactForm = styled.form`
     top: 0px;
     left: 0px;
   }
+
+  @media (max-width: 767px) {
+    .submit-btn {
+      padding: 13px 12px 13px;
+    }
+  }
 `
