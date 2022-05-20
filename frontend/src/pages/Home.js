@@ -92,6 +92,12 @@ const ProfileContainer = styled.div`
   @media (max-width: 767px) {
     flex-direction: column;
   }
+
+  @media (max-width: 991px) {
+    div {
+      font-size: 18px;
+    }
+  }
 `
 const FeaturedProjectsSection = styled.div`
   display: grid;
