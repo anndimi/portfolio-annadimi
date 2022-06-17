@@ -9,6 +9,7 @@ import htmlIcon from '../assets/icons/html-icon.png'
 import mongoIcon from '../assets/icons/mongo-icon.png'
 import reduxIcon from '../assets/icons/redux-icon.png'
 import postmanIcon from '../assets/icons/postman-icon.png'
+import jqueryIcon from '../assets/icons/jquery-icon.png'
 
 const About = () => {
   return (
@@ -75,6 +76,11 @@ const About = () => {
               {' '}
               <img src={reduxIcon} alt="Redux" />
               Redux
+            </span>
+            <span>
+              {' '}
+              <img src={jqueryIcon} alt="jQuery" />
+              jQuery
             </span>
             <span>
               {' '}
