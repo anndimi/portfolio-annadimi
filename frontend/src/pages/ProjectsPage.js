@@ -15,7 +15,11 @@ const ProjectsPage = ({ projects }) => {
         <ProjectsListWrapper>
           {projectsList.map((project) => (
             <ProjectsListContainer key={project.name}>
-              <Link to={`/projects/${project.name}`} className="project-link">
+              <Link
+                to={`/projects/${project.name}`}
+                className="project-link"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 /{project.name}
               </Link>
             </ProjectsListContainer>

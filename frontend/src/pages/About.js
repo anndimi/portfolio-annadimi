@@ -55,8 +55,11 @@ const About = () => {
             </p>
 
             <p>
-              Feel free to <Link to="/contact">contact</Link> me if you want to
-              know more!
+              Feel free to{' '}
+              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                contact
+              </Link>{' '}
+              me if you want to know more!
             </p>
           </InfoContainer>
         </AboutContainer>

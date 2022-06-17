@@ -17,7 +17,7 @@ const Home = ({ user, projects }) => {
             <ProfileWrapper>
               <LottieAvatar style={{ height: 300 }} />
               <ProfileContainer>
-                <div>{user.login}</div>
+                <div>anna dimitrakopoulos</div>
                 <span className="divider"></span>
                 <div>frontend developer</div>
                 <span className="divider"></span>
@@ -28,7 +28,7 @@ const Home = ({ user, projects }) => {
         ) : (
           <ProfileContainer>
             <LottieAvatar />
-            <div>{user.login}</div>
+            <div>anna dimitrakopoulos</div>
             <span className="divider"></span>
             <div>frontend developer</div>
             <span className="divider"></span>
@@ -41,7 +41,11 @@ const Home = ({ user, projects }) => {
           <FeaturedProjectsWrapper>
             {featuredProjects.map((project) => (
               <FeaturedProjectsContainer key={project.name}>
-                <Link to={`/projects/${project.name}`} className="project-link">
+                <Link
+                  to={`/projects/${project.name}`}
+                  className="project-link"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   {project.name}
                 </Link>
                 <a
