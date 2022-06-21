@@ -177,8 +177,6 @@ app.get('/projects', async (req, res) => {
 app.get('/projects/:name', async (req, res) => {
   const projectInfo = await fetchSingleDatabaseProject(req.params.name)
 
-  console.log('fuck me sideways', projectInfo)
-
   const githubInfo = await fetchSingleGithubRepo(req.params.name)
 
   //Create a new object that combines needed info from both the database and the github api.
