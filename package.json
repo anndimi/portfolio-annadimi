@@ -5,6 +5,9 @@
   "scripts": {
     "postinstall": "npm install --prefix backend"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "react-router-dom": "^6.2.1"
   }
