@@ -11,7 +11,7 @@ const ProjectPage = () => {
   const dayjs = require('dayjs')
 
   useEffect(() => {
-    fetch(`http://localhost:8080/projects/${name}`)
+    fetch(`https://annadimi-portfolio.herokuapp.com/projects/${name}`)
       .then((res) => res.json())
       .then((data) => setProject(data))
       .finally(() => setLoading(false))

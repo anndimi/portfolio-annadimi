@@ -15,13 +15,13 @@ const App = () => {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:8080/user')
+    fetch('https://annadimi-portfolio.herokuapp.com/user')
       .then((res) => res.json())
       .then((data) => setUser(data))
   }, [])
 
   useEffect(() => {
-    fetch('http://localhost:8080/projects')
+    fetch('https://annadimi-portfolio.herokuapp.com/projects')
       .then((res) => res.json())
       .then((data) => setProjects(data))
   }, [])

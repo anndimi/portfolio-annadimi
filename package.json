@@ -9,7 +9,6 @@
     "node": "18.x"
   },
   "dependencies": {
-    "react-router-dom": "^6.2.1",
-    "cors": "^2.8.5"
+    "react-router-dom": "^6.2.1"
   }
 }
