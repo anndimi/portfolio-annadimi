@@ -7,11 +7,18 @@ import dotenv from 'dotenv'
 // PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
+const cors = require('cors')
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
+// app.use(cors())
 app.use(express.json())
 dotenv.config()
+
+//CORS configurations
+const corsOptions = {
+  origin: "https://annadimi-portfolio.netlify.app/",
+  optionsSuccessStatus: 200
+}
 
 //Connection URI for mongodb
 const { MongoClient } = require('mongodb')
@@ -162,7 +169,7 @@ async function fetchGithubUser() {
 
 // // Start defining your routes here
 
-app.get('/projects', async (req, res) => {
+app.get('/projects', cors(corsOptions), async (req, res) => {
   const githubRepos = await fetchGithubReposAndLanguages()
 
   res.send(JSON.stringify(githubRepos))
@@ -174,7 +181,7 @@ app.get('/projects', async (req, res) => {
 //   res.send(JSON.stringify(projectInfo))
 // })
 
-app.get('/projects/:name', async (req, res) => {
+app.get('/projects/:name', cors(corsOptions), async (req, res) => {
   const projectInfo = await fetchSingleDatabaseProject(req.params.name)
 
   const githubInfo = await fetchSingleGithubRepo(req.params.name)
@@ -195,7 +202,7 @@ app.get('/projects/:name', async (req, res) => {
   res.send(JSON.stringify(project))
 })
 
-app.get('/user', async (req, res) => {
+app.get('/user', cors(corsOptions), async (req, res) => {
   const user = await fetchGithubUser()
 
   res.send(JSON.stringify(user))
