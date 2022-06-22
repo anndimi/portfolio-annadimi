@@ -23,6 +23,15 @@ code {
   font-family: 'Poppins', sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #575757;
+  border-radius: 10px;
+}
+
 @media (max-width: 767px) {
   body { 
     background-image: none;
