@@ -7,7 +7,7 @@ import dotenv from 'dotenv'
 // PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
-const cors = require('cors')
+
 
 // Add middlewares to enable cors and json body parsing
 // app.use(cors())
@@ -24,7 +24,7 @@ const corsOptions = {
 const { MongoClient } = require('mongodb')
 
 async function main() {
-  const connectionUri = 'mongodb://127.0.0.1:27017/'
+  const connectionUri = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/'
   const client = new MongoClient(connectionUri)
   await client.connect()
   const databases = await client.db().admin().listDatabases()
