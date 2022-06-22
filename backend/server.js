@@ -106,7 +106,7 @@ async function fetchSingleGithubRepo(name) {
 }
 
 async function fetchDatabaseProjects() {
-  const connectionUri = 'mongodb://127.0.0.1:27017/'
+  const connectionUri = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/'
   const client = new MongoClient(connectionUri)
   await client.connect()
 
@@ -123,7 +123,7 @@ async function fetchDatabaseProjects() {
 }
 
 async function fetchSingleDatabaseProject(name) {
-  const connectionUri = 'mongodb://127.0.0.1:27017/'
+  const connectionUri = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/'
   const client = new MongoClient(connectionUri)
   await client.connect()
 
