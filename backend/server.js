@@ -16,7 +16,7 @@ dotenv.config()
 
 //CORS configurations
 const corsOptions = {
-  origin: "https://annadimi-portfolio.netlify.app",
+  origin: [ "https://annadimi.dev","https://annadimi-portfolio.netlify.app"],
   optionsSuccessStatus: 200
 }
 
